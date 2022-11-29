@@ -1,0 +1,11 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+*[alt*='icon']{
+    width: 2vw;
+}
+.logo > img{
+    width: 5vw;
+}
