@@ -11,6 +11,10 @@ const random = (x=10)=> Math.floor(Math.random()*(x+1));
 
 const create = (x)=> document.createElement(x);
 
+const getRandomColor = ()=>{
+    return 'rgb('+random(255)+','+random(255)+','+random(255)+')';
+}
+
 const getSyllable = ()=>{
     return con[random(con.length-1)]+vowel[random(vowel.length-1)];
 };
@@ -31,7 +35,7 @@ const getContent = ()=>{
 
     title.className = 'section-headings';
 
-    title.textContent = getParagraph(2+random(2));
+    title.textContent = getParagraph(2+random(1));
     par.innerText = getParagraph(25+random(5));
 
     [title,par].forEach(content.appendChild,content);
@@ -41,6 +45,7 @@ const getContent = ()=>{
 const getCard = ()=>{
     let card = create('div');
     card.appendChild(getContent());
+    card.className = 'card';
     ['favor','watch','fork'].map(x=>{
         let y = create('img');
         y.src = 'images/'+x+'.svg';
@@ -57,6 +62,7 @@ const getUser = ()=>{
 
     icon.className = 'user-icon';
     icon.textContent = (con+vowel)[random((con+vowel).length-1)];
+    icon.style.backgroundColor = getRandomColor();
     name.textContent = '@'+getWord();
     proj.textContent = getParagraph(3);
 
@@ -66,7 +72,11 @@ const getUser = ()=>{
 }
 const populate = (x,y,z)=>{
     [...Array(x)].map(item => getCard()).forEach(projects.appendChild,projects);
-    [...Array(y)].map(item => getContent()).forEach(announcements.appendChild,announcements);
+    [...Array(y)].map(item => {
+        item = create('div');
+        item.appendChild(getContent());
+        return item;
+    }).forEach(announcements.appendChild,announcements);
     [...Array(x)].map(item => getUser()).forEach(trending.appendChild,trending);
 };
 populate(6,3,4);
