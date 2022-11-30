@@ -19,7 +19,7 @@
 
 body{
     display: grid;
-    grid-template: 150px 1fr/ 1fr 4fr;
+    grid-template: 25vh 1fr/ 1fr 4fr;
 }
 h1{
     font-size: .9rem;
@@ -33,7 +33,7 @@ p{
 header{
     grid-area: 1/2/2/3;
     display: grid;
-    padding: 10px;
+    padding: 10px 35px;
     gap: 10px;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
     z-index: 5;
@@ -160,7 +160,9 @@ nav{
     grid-template-columns: max(24px,3vw) 1fr;
     color: var(--near-background);
 }
-
+nav *[src*='.svg']{
+    filter: invert();
+}
 
 /* Main section styles */
 
