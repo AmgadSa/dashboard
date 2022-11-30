@@ -189,6 +189,7 @@ main > *{
 .trending-container{
     grid-column-start: 2;
     grid-row-start: 2;
+    grid-template-rows: 2rem 1fr;
     padding-top: 15px;
     gap: 15px;
 }
